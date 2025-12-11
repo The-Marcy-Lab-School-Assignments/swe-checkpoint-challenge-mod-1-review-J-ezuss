@@ -1,6 +1,7 @@
 # Short Responses
 
 For this assessment, aim to write a response with the following qualities:
+
 - [ ] Addresses all parts of the prompt
 - [ ] Accurately uses relevant technical terminology
 - [ ] Is free of grammar and spelling mistakes
@@ -16,17 +17,17 @@ Consider the code below which has a bug. Instead of printing the correct letter 
 const getLetterGrade = (score) => {
   let letter;
   if (score >= 90) {
-    let letter = "A";
+    let letter = 'A';
   } else if (score >= 80) {
-    let letter = "B";
+    let letter = 'B';
   } else if (score >= 70) {
-    let letter = "C";
+    let letter = 'C';
   } else {
-    let letter = "F";
+    let letter = 'F';
   }
 
-  return "Your grade is: " + letter;
-}
+  return 'Your grade is: ' + letter;
+};
 
 console.log(getLetterGrade(95)); // This should print "Your grade is: A"
 console.log(getLetterGrade(82)); // This should print "Your grade is: B"
@@ -43,10 +44,11 @@ console.log(getLetterGrade(65)); // This should print "Your grade is: F"
 **Part A:**
 
 Your response...
-
+this bug is occurring because we are using `let` inside of the if and else statements instead of returning `letter` therefore resulting in the `undefined` output
 **Part B:**
 
 Your response...
+How I would fix this would be to change all the `let` inside all the if else statements and writing the `return` keyword instead.
 
 ---
 
@@ -70,12 +72,21 @@ console.log(originalSettings.volume);
 **Part A:**
 
 Your response...
-
+What will be logged is 75 because you are not creating a new object you’re copying the reference to the same object in memory. So originalSettings and newSettings both point to the same object.
 **Part B:**
 
 Your response...
+What I would do is make a new object using the spread operator an example would be down below...
 
+```js
+const originalSettings = { volume: 50, brightness: 80 };
+const newSettings = {...originalSettings};// line 83
+newSettings.volume = 75;
+console.log(originalSettings.volume);
 **Corrected Code:**
+```
+
+basically what I did was on line 83 I used the spread operator to make a new array in order to not affect the `originalSettings.volume`. Giving it the output 50.
 
 ```js
 // Fix this code so newSettings is a true copy
@@ -90,20 +101,22 @@ console.log(originalSettings.volume);
 ## Prompt 3
 
 Given this array of products and the code using `filter`:
+
 ```js
 const products = [
-  { name: "Laptop", price: 1000, inStock: true },
-  { name: "Phone", price: 700, inStock: false },
-  { name: "Watch", price: 300, inStock: true },
-  { name: "Tablet", price: 500, inStock: true },
+  { name: 'Laptop', price: 1000, inStock: true },
+  { name: 'Phone', price: 700, inStock: false },
+  { name: 'Watch', price: 300, inStock: true },
+  { name: 'Tablet', price: 500, inStock: true },
 ];
 
 const itemsInStock = products.filter((product) => {
-  return product.inStock
+  return product.inStock;
 });
 ```
 
 Walk through what happens in the first iteration of filter:
+
 - What is the value of `product`?
 - What gets returned from the callback?
 - What happens with that returned value?
@@ -111,3 +124,7 @@ Walk through what happens in the first iteration of filter:
 ### Response 3
 
 Your response...
+
+- In the first iteration he value of `product` is the object `{ name: 'Laptop', price: 1000, inStock: true }`.
+- What gets returned from the callback is the products that are `inStock` and wether it's true or false.
+- When the value is returned you will get wether the product is in stock or not in a true or false statement and it will just show you the products that are in stock only
