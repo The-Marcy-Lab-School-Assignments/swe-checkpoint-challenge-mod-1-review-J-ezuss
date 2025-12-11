@@ -72,11 +72,11 @@ console.log(originalSettings.volume);
 **Part A:**
 
 Your response...
-What will be logged is 75 because
+What will be logged is 75 because you are not creating a new object you’re copying the reference to the same object in memory. So originalSettings and newSettings both point to the same object.
 **Part B:**
 
 Your response...
-correct me if I'm wrong but what I would do is make a new array using the spread syntax an example would be
+What I would do is make a new object using the spread operator an example would be down below...
 
 ```js
 const originalSettings = { volume: 50, brightness: 80 };
@@ -86,7 +86,7 @@ console.log(originalSettings.volume);
 **Corrected Code:**
 ```
 
-basically what I did was on line 83 I used the spread syntax to make a new array in order to not affect the `originalSettings.volume`.
+basically what I did was on line 83 I used the spread operator to make a new array in order to not affect the `originalSettings.volume`. Giving it the output 50.
 
 ```js
 // Fix this code so newSettings is a true copy
@@ -124,8 +124,7 @@ Walk through what happens in the first iteration of filter:
 ### Response 3
 
 Your response...
-The value of product is
 
-What gets returned from the callback is the products that are `inStock` and wether it's true or false.
-
-when the value is returned you will get wether the product is in stock or not in a true or false statement and it will just show you the products that are in stock only
+- In the first iteration he value of `product` is the object `{ name: 'Laptop', price: 1000, inStock: true }`.
+- What gets returned from the callback is the products that are `inStock` and wether it's true or false.
+- When the value is returned you will get wether the product is in stock or not in a true or false statement and it will just show you the products that are in stock only
